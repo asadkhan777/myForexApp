@@ -5,16 +5,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.asadkhan.kurrencyapp.data.database.CurrencyContract.HistoricalCurrencyTable;
-import com.example.asadkhan.kurrencyapp.data.database.CurrencyContract.LiveCurrencyTable;
+import com.example.asadkhan.kurrencyapp.data.database.KurrencyContract.HistoricalCurrencyTable;
+import com.example.asadkhan.kurrencyapp.data.database.KurrencyContract.LiveCurrencyTable;
 
 /**
  * Kreated by asadkhan on 08 | May |  2017 | at 9:22 PM.
  */
 
-public class CurrencyDbHelper extends SQLiteOpenHelper {
+public class KurrencyDbHelper extends SQLiteOpenHelper {
 
-    public CurrencyDbHelper(Context context){
+    public KurrencyDbHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -30,7 +30,7 @@ public class CurrencyDbHelper extends SQLiteOpenHelper {
 
         final String SQL_CREATE_LIVE_TABLE =
                 "CREATE TABLE " +
-                CurrencyContract.LiveCurrencyTable.TABLE_NAME + " (" +
+                KurrencyContract.LiveCurrencyTable.TABLE_NAME + " (" +
                         LiveCurrencyTable._ID + " INTEGER PRIMARY KEY," +
                         LiveCurrencyTable.COLUMN_ENTRY_TYPE + " TEXT NOT NULL, " +
                         LiveCurrencyTable.COLUMN_TIMESTAMP + " BIGINT UNIQUE NOT NULL, " +
@@ -43,7 +43,7 @@ public class CurrencyDbHelper extends SQLiteOpenHelper {
 
         final String SQL_CREATE_HISTORICAL_TABLE =
                 "CREATE TABLE " +
-                CurrencyContract.HistoricalCurrencyTable.TABLE_NAME + " (" +
+                KurrencyContract.HistoricalCurrencyTable.TABLE_NAME + " (" +
                         HistoricalCurrencyTable._ID + " INTEGER PRIMARY KEY," +
                         HistoricalCurrencyTable.COLUMN_TIMESTAMP + " BIGINT UNIQUE NOT NULL, " +
                         HistoricalCurrencyTable.COLUMN_USD_INR + " REAL NOT NULL, " +
