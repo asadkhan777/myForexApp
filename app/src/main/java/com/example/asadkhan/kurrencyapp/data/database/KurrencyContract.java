@@ -10,7 +10,7 @@ import android.provider.BaseColumns;
  * Kreated by asadkhan on 08 | May |  2017 | at 7:20 PM.
  */
 
-public class CurrencyContract {
+public class KurrencyContract {
 
     public static final String CONTENT_AUTHORITY = "com.example.asadkhan.kurrencyapp";
 
@@ -73,6 +73,10 @@ public class CurrencyContract {
 
         public static Uri buildLiveUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+        public static Uri buildLiveUri() {
+            return CONTENT_URI.buildUpon().build();
         }
     }
 
@@ -149,11 +153,13 @@ public class CurrencyContract {
             if ( param != null && param.length() > 0 ) {
                 return Long.parseLong(param);
             } else {
-                return 0;
+                throw new IllegalArgumentException(
+                        "Empty string not allowed",
+                        new Throwable());
             }
         }
 
-        public static long getFromDateFromUri(Uri uri) {
+        public static long getStartDateFromUri(Uri uri) {
             String param = uri.getQueryParameter(fromDateparam);
             if ( param != null && param.length() > 0 ) {
                 return Long.parseLong(param);
