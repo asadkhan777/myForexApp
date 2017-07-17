@@ -53,7 +53,7 @@ app/libs/
 
 build.gradle
 gradle.properties
-gradle/
+#gradle/
 #gradlew
 #gradlew.bat
 settings.gradle
